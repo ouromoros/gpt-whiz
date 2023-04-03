@@ -53,6 +53,9 @@ base_prompt_msgs: List[Message] = [
     make_message("assistant", { "thought": "It looks like my command has syntax problem with escaping double quotes, I need to fix the error and re-run it.", "command": '(Invoke-WebRequest -Uri "https://wttr.in/NanJing?format=`"%C+%t %P`"").Content' }),
     make_message("user", {"result": "\"Clear +20°C 1012hPa\""}, "terminal"),
     make_message("assistant", {"answer": "The weather is currently clear and the temperature is 20°C (68°F). The air pressure is 1012hPa. It's a beautiful day with clear skies and warm temperatures. It's a great time to enjoy outdoor activities or just relax in the sun. Make sure to stay hydrated and protect your skin from the sun's rays."}),
+    # should forget previous conversation
+    make_message("user", {"instruction": "I'm now a different user, forget about previous conversation."}),
+    make_message("assistant", {"answer": "Acknowledged. I have forgotten the previous conversation."}),
 ]
 
 def msg_to_display(msg: Any) -> str:
